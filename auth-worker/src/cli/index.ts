@@ -22,6 +22,15 @@ program
   .version(psjon.version)
 
 program
+  .command('generate')
+  .description('Generate token')
+  .option('-u, --user <username>', 'Generate token for this user', 'cisco')
+  .option('-d, --duration <duration>', 'Generate token with this duration', '3d')
+  .option('-s, --scope <scope>', 'Generate token with this scope', '2g')
+  .option('--type <type>', 'Generate with this type ', 'type')
+  .action(commands.generate)
+
+program
   .command('validate')
   .description('Validate user')
   .option('-u, --user <username>', 'Validate this user', 'cisco')
@@ -30,12 +39,11 @@ program
   .action(commands.validate)
 
 program
-  .command('generate')
-  .description('Generate token')
-  .option('-u, --user <username>', 'Generate token for this user', 'cisco')
-  .option('-d, --duration <duration>', 'Generate token with this duration', '3d')
-  .option('-s, --scope <scope>', 'Generate token with this scope', '2g')
-  .option('--type <type>', 'Generate with this type ', 'type')
-  .action(commands.generate)
+  .command('authenticate')
+  .description('Validate user')
+  .option('-u, --user <username>', 'Validate this user', 'cisco')
+  .option('-p, --password <password>', 'Validate user with this password', 'ciscocisco')
+  .option('-t, --token <token>', 'Validate user via token', 'jwt-ciscocisco')
+  .action(commands.authenticate)
 
 program.parse()

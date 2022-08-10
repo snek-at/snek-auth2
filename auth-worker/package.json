@@ -28,8 +28,10 @@
     "isomorphic-fetch": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
     "minimatch": "^5.1.0",
+    "node-duckdb": "^0.0.79",
     "node-fetch": "^3.2.4",
     "nodemon": "^2.0.16",
+    "parquets": "^0.10.10",
     "patch-package": "^6.4.7",
     "regenerator-runtime": "^0.13.9",
     "serverless-http": "^3.0.1"
@@ -43,6 +45,7 @@
     "@types/jest": "^27.4.1",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/node": "^17.0.30",
+    "@types/thrift": "^0.10.11",
     "chokidar": "^3.5.3",
     "jest": "^28.0.2",
     "patch-package": "^6.4.7",
