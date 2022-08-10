@@ -6,8 +6,7 @@
   "description": "Generated with `snek-functions init -f functions`",
   "author": "snek-at",
   "dependencies": {
-    "@snek-at/functions": "*",
-    "node-duckdb": "^0.0.79"
+    "@snek-at/functions": "*"
   },
   "devDependencies": {
     "nodemon": "^2.0.19",

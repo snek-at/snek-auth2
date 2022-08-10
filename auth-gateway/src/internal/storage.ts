@@ -3,7 +3,7 @@ import { IExecuteOptions, RowResultFormat } from "node-duckdb";
 
 const executeOptions: IExecuteOptions = { rowResultFormat: RowResultFormat.Object };
 
-export async function queryDatabaseWithIterator(user: string) {
+export async function queryDatabaseWithIterator() {
   // create new database in memory
   const db = new DuckDB()
   // create a new connection to the database
@@ -27,10 +27,8 @@ export async function queryDatabaseWithIterator(user: string) {
   // await connection.executeIterator("INSERT INTO 'alias' VALUES (1 , 'ci@s.co');")
   // await connection.executeIterator("EXPORT DATABASE './' (FORMAT PARQUET)")
 
-
-
   const result = await connection.executeIterator(
-    `SELECT * FROM 'alias' a, 'user' u WHERE a.uid=u.uid AND a.alias='${user}' LIMIT 1`,
+    "SELECT * FROM 'alias' a, 'user' u WHERE a.uid=u.uid AND a.alias='cisco' LIMIT 1",
     executeOptions,
   )
 
@@ -44,14 +42,11 @@ export async function queryDatabaseWithIterator(user: string) {
 
 
   // fetch and print result
-  const res = result.fetchRow()
-  //console.log(result.fetchRow())
+  console.log(result.fetchRow())
 
   // release resources
   connection.close()
   db.close()
-
-  return res
 }
 // sql = `copy (select * from '${input}') to  '${output}'(FORMAT PARQUET)`;
 
